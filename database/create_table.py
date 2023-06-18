@@ -9,9 +9,21 @@ def create_tables():
         CREATE TABLE IF NOT EXISTS topic (id INTEGER PRIMARY KEY, name TEXT, UNIQUE(name))
         """,
         """
-    CREATE TABLE IF NOT EXISTS question 
-    (id INTEGER PRIMARY KEY, content TEXT, rank INTEGER, topic_id INTEGER, UNIQUE(content))
-    """)
+        CREATE TABLE IF NOT EXISTS question 
+        (id INTEGER PRIMARY KEY, content TEXT, rank INTEGER, topic_id INTEGER, UNIQUE(content))
+        """,
+        """
+        CREATE TABLE IF NOT EXISTS response 
+        (id INTEGER PRIMARY KEY, content TEXT, correct BOOLEAN, question_id INTEGER, UNIQUE(content))
+        """,
+        """
+        CREATE TABLE IF NOT EXISTS quiz 
+        (id INTEGER PRIMARY KEY, name TEXT, UNIQUE(name))
+        """,
+        """
+        CREATE TABLE IF NOT EXISTS quiz_question 
+        (id SERIAL PRIMARY KEY, quiz_id INTEGER,question_id INTEGER, UNIQUE(question_id))
+        """)
     conn = None
     try:
         # read the connection parameters

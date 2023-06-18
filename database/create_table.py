@@ -1,5 +1,5 @@
 import psycopg2
-from config import config
+from connect import connect
 
 
 def create_tables():
@@ -24,12 +24,11 @@ def create_tables():
         CREATE TABLE IF NOT EXISTS quiz_question 
         (id SERIAL PRIMARY KEY, quiz_id INTEGER,question_id INTEGER, UNIQUE(question_id))
         """)
+
     conn = None
     try:
-        # read the connection parameters
-        params = config()
         # connect to the PostgreSQL server
-        conn = psycopg2.connect(**params)
+        conn = connect()
         cur = conn.cursor()
         # create table one by one
         for command in commands:

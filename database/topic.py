@@ -1,4 +1,5 @@
 from database.connect import connect
+from database.create_table import create_tables
 
 
 class Topic:
@@ -14,6 +15,7 @@ class Topic:
 
 
 if __name__ == '__main__':
+    create_tables()
     history = Topic("History")
     music = Topic("Music")
     cinema = Topic("Cinema")

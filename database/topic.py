@@ -19,3 +19,4 @@ class Topic:
 if __name__ == '__main__':
     history = Topic("History")
     music = Topic("Music")
+    cinema = Topic("Cinema")

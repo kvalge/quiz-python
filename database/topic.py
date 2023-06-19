@@ -1,5 +1,4 @@
-import psycopg2
-from database.config import config
+from database.connect import connect
 
 
 class Topic:
@@ -7,9 +6,7 @@ class Topic:
     def __init__(self, name):
         self.name = name
 
-        params = config()
-
-        conn = psycopg2.connect(**params)
+        conn = connect()
         cur = conn.cursor()
         cur.execute("INSERT INTO topic VALUES (DEFAULT, '" + name + "')")
         cur.connection.commit()
@@ -20,3 +17,4 @@ if __name__ == '__main__':
     history = Topic("History")
     music = Topic("Music")
     cinema = Topic("Cinema")
+    philosophy = Topic("Philosophy")

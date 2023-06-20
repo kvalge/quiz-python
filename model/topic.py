@@ -1,5 +1,4 @@
 from database.connect import connect
-from database.create_table import create_tables
 
 
 class Topic:

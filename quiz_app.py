@@ -1,5 +1,6 @@
 from database.connect import connect
 from database.create_table import create_tables
+
 from model.topic import Topic
 from model.question import Question
 from model.response import Response
@@ -23,6 +24,23 @@ def get_question_by_topic(topic_name):
     questions = cur.fetchall()
     for row in questions:
         print("{}: {}".format(topic_name, row[2]))
+
+    cur.connection.commit()
+    cur.close()
+
+
+def get_questions_by_quiz(quiz_name):
+    conn = connect()
+    cur = conn.cursor()
+
+    cur.execute("SELECT quiz_question.quiz_name, question.name "
+                "FROM quiz_question "
+                "INNER JOIN question "
+                "ON quiz_question.question_name = question.name " 
+                "WHERE quiz_question.quiz_name = '" + quiz_name + "'")
+    questions = cur.fetchall()
+    for row in questions:
+        print("{}: {}".format(quiz_name, row[1]))
 
     cur.connection.commit()
     cur.close()
@@ -75,3 +93,5 @@ if __name__ == '__main__':
     add_question_to_quiz(cinema_quiz.name, q4.name)
 
     get_question_by_topic(history.name)
+
+    get_questions_by_quiz(history_quiz.name)

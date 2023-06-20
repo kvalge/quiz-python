@@ -1,7 +1,19 @@
+from database.connect import connect
 from database.create_table import create_tables
 from model.topic import Topic
 from model.question import Question
 from model.response import Response
+from model.quiz import Quiz
+
+
+def add_question_to_quiz(quiz_name, question_name):
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute("INSERT INTO quiz_question VALUES "
+                "(DEFAULT, '" + quiz_name + "', '" + question_name + "') ON CONFLICT DO NOTHING")
+    cur.connection.commit()
+    cur.close()
+
 
 if __name__ == '__main__':
     create_tables()
@@ -40,3 +52,11 @@ if __name__ == '__main__':
     r1q4 = Response("Jodie Foster", "False", "q4")
     r2q4 = Response("Sally Potter", "False", "q4")
     r3q4 = Response("Sofia Coppola", "True", "q4")
+
+    history_quiz = Quiz("History quiz")
+    cinema_quiz = Quiz("Cinema quiz")
+
+    add_question_to_quiz(history_quiz.name, q1.name)
+    add_question_to_quiz(history_quiz.name, q2.name)
+    add_question_to_quiz(history_quiz.name, q3.name)
+    add_question_to_quiz(cinema_quiz.name, q4.name)

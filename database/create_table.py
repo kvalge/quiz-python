@@ -21,7 +21,7 @@ def create_tables():
         """,
         """
         CREATE TABLE IF NOT EXISTS quiz_question 
-        (id SERIAL PRIMARY KEY, quiz_id INTEGER,question_id INTEGER, UNIQUE(question_id))
+        (id SERIAL PRIMARY KEY, quiz_name TEXT,question_name TEXT, UNIQUE(question_name))
         """)
 
     conn = None

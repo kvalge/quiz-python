@@ -9,7 +9,7 @@ def create_tables():
         """,
         """
         CREATE TABLE IF NOT EXISTS question 
-        (id SERIAL PRIMARY KEY, content TEXT, rank INTEGER, topic_name TEXT, UNIQUE(content))
+        (id SERIAL PRIMARY KEY, name TEXT, content TEXT, rank INTEGER, topic_name TEXT, UNIQUE(name))
         """,
         """
         CREATE TABLE IF NOT EXISTS response 

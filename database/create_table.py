@@ -9,11 +9,11 @@ def create_tables():
         """,
         """
         CREATE TABLE IF NOT EXISTS question 
-        (id SERIAL PRIMARY KEY, content TEXT, rank INTEGER, topic_id INTEGER, UNIQUE(content))
+        (id SERIAL PRIMARY KEY, content TEXT, rank INTEGER, topic_name TEXT, UNIQUE(content))
         """,
         """
         CREATE TABLE IF NOT EXISTS response 
-        (id SERIAL PRIMARY KEY, content TEXT, correct BOOLEAN, question_id INTEGER, UNIQUE(content))
+        (id SERIAL PRIMARY KEY, content TEXT, correct BOOLEAN, question_name TEXT, UNIQUE(content))
         """,
         """
         CREATE TABLE IF NOT EXISTS quiz 

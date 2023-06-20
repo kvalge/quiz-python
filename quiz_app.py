@@ -15,6 +15,19 @@ def add_question_to_quiz(quiz_name, question_name):
     cur.close()
 
 
+def get_question_by_topic(topic_name):
+    conn = connect()
+    cur = conn.cursor()
+
+    cur.execute("SELECT * FROM question WHERE topic_name = '" + topic_name + "'")
+    questions = cur.fetchall()
+    for row in questions:
+        print("{}: {}".format(topic_name, row[2]))
+
+    cur.connection.commit()
+    cur.close()
+
+
 if __name__ == '__main__':
     create_tables()
 
@@ -60,3 +73,5 @@ if __name__ == '__main__':
     add_question_to_quiz(history_quiz.name, q2.name)
     add_question_to_quiz(history_quiz.name, q3.name)
     add_question_to_quiz(cinema_quiz.name, q4.name)
+
+    get_question_by_topic(history.name)

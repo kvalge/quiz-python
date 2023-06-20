@@ -12,6 +12,6 @@ class Question:
         cur = conn.cursor()
         cur.execute(
             "INSERT INTO question VALUES "
-            "(DEFAULT, '" + content + "', '" + rank + "', '" + topic_name + "')")
+            "(DEFAULT, '" + content + "', '" + rank + "', '" + topic_name + "') ON CONFLICT DO NOTHING")
         cur.connection.commit()
         cur.close()

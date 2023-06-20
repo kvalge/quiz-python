@@ -8,6 +8,6 @@ class Topic:
 
         conn = connect()
         cur = conn.cursor()
-        cur.execute("INSERT INTO topic VALUES (DEFAULT, '" + name + "')")
+        cur.execute("INSERT INTO topic VALUES (DEFAULT, '" + name + "') ON CONFLICT DO NOTHING")
         cur.connection.commit()
         cur.close()

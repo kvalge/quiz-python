@@ -1,9 +1,8 @@
 import psycopg2
-from connect import connect
+from database.connect import connect
 
 
 def create_tables():
-    """ create tables in the PostgreSQL database"""
     commands = (
         """
         CREATE TABLE IF NOT EXISTS topic (id SERIAL PRIMARY KEY, name TEXT, UNIQUE(name))

@@ -14,4 +14,4 @@ Installed psycopg2.
 
 Database directory: contains files for db connection and inserting tables to db.  
 Model directory: contains models to insert data to db.  
-quiz.py: for initializing objects and calling methods.  
+quiz_app.py: for initializing objects and calling methods.  

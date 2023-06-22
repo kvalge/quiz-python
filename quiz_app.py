@@ -6,6 +6,8 @@ from model.question import Question
 from model.response import Response
 from model.quiz import Quiz
 
+import pandas as pd
+
 
 def add_question_to_quiz(quiz_name, question_name):
     conn = connect()
@@ -36,7 +38,7 @@ def get_questions_by_quiz(quiz_name):
     cur.execute("SELECT quiz_question.quiz_name, question.name "
                 "FROM quiz_question "
                 "INNER JOIN question "
-                "ON quiz_question.question_name = question.name " 
+                "ON quiz_question.question_name = question.name "
                 "WHERE quiz_question.quiz_name = '" + quiz_name + "'")
     questions = cur.fetchall()
     for row in questions:
@@ -95,3 +97,7 @@ if __name__ == '__main__':
     get_question_by_topic(history.name)
 
     get_questions_by_quiz(history_quiz.name)
+
+    dataframe1 = pd.read_excel('data.xlsx')
+
+    print(dataframe1)

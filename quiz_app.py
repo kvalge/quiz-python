@@ -59,6 +59,7 @@ if __name__ == '__main__':
     dataframe = pd.read_excel('data.xlsx')
     print(dataframe)
 
+    # Reading Question object arguments from data excel file
     q1 = Question("{}".format(dataframe.get("question_name")[0]),
                   "{}".format(dataframe.get("question_content")[0]),
                   "{}".format(dataframe.get("question_rank")[0]),
@@ -76,6 +77,7 @@ if __name__ == '__main__':
                   "{}".format(dataframe.get("question_rank")[9]),
                   "{}".format(dataframe.get("topic")[9]))
 
+    # Reading Response object arguments from data excel file
     r1q1 = Response("{}".format(dataframe.get("response_content")[0]),
                     "{}".format(dataframe.get("response_correct")[0]),
                     "{}".format(dataframe.get("question_name")[0]))

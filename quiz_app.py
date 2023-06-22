@@ -59,35 +59,59 @@ if __name__ == '__main__':
     dataframe = pd.read_excel('data.xlsx')
     print(dataframe)
 
-    q1 = Question("q1",
+    q1 = Question("{}".format(dataframe.get("question_name")[0]),
                   "{}".format(dataframe.get("question_content")[0]),
-                  "1",
-                  "History")
-    q2 = Question("q2",
+                  "{}".format(dataframe.get("question_rank")[0]),
+                  "{}".format(dataframe.get("topic")[0]))
+    q2 = Question("{}".format(dataframe.get("question_name")[3]),
                   "{}".format(dataframe.get("question_content")[3]),
-                  "3",
-                  "History")
-    q3 = Question("q3",
+                  "{}".format(dataframe.get("question_rank")[3]),
+                  "{}".format(dataframe.get("topic")[3]))
+    q3 = Question("{}".format(dataframe.get("question_name")[6]),
                   "{}".format(dataframe.get("question_content")[6]),
-                  "3",
-                  "History")
-    q4 = Question("q4",
+                  "{}".format(dataframe.get("question_rank")[6]),
+                  "{}".format(dataframe.get("topic")[6]))
+    q4 = Question("{}".format(dataframe.get("question_name")[9]),
                   "{}".format(dataframe.get("question_content")[9]),
-                  "1",
-                  "Cinema")
+                  "{}".format(dataframe.get("question_rank")[9]),
+                  "{}".format(dataframe.get("topic")[9]))
 
-    r1q1 = Response("{}".format(dataframe.get("response_content")[0]), "False", "q1")
-    r2q1 = Response("{}".format(dataframe.get("response_content")[1]), "True", "q1")
-    r3q1 = Response("{}".format(dataframe.get("response_content")[2]), "False", "q1")
-    r1q2 = Response("{}".format(dataframe.get("response_content")[3]), "False", "q2")
-    r2q2 = Response("{}".format(dataframe.get("response_content")[4]), "False", "q2")
-    r3q2 = Response("{}".format(dataframe.get("response_content")[5]), "True", "q2")
-    r1q3 = Response("{}".format(dataframe.get("response_content")[6]), "True", "q3")
-    r2q3 = Response("{}".format(dataframe.get("response_content")[7]), "False", "q3")
-    r3q3 = Response("{}".format(dataframe.get("response_content")[8]), "False", "q3")
-    r1q4 = Response("{}".format(dataframe.get("response_content")[9]), "False", "q4")
-    r2q4 = Response("{}".format(dataframe.get("response_content")[10]), "False", "q4")
-    r3q4 = Response("{}".format(dataframe.get("response_content")[11]), "True", "q4")
+    r1q1 = Response("{}".format(dataframe.get("response_content")[0]),
+                    "{}".format(dataframe.get("response_correct")[0]),
+                    "{}".format(dataframe.get("question_name")[0]))
+    r2q1 = Response("{}".format(dataframe.get("response_content")[1]),
+                    "{}".format(dataframe.get("response_correct")[1]),
+                    "{}".format(dataframe.get("question_name")[1]))
+    r3q1 = Response("{}".format(dataframe.get("response_content")[2]),
+                    "{}".format(dataframe.get("response_correct")[2]),
+                    "{}".format(dataframe.get("question_name")[2]))
+    r1q2 = Response("{}".format(dataframe.get("response_content")[3]),
+                    "{}".format(dataframe.get("response_correct")[3]),
+                    "{}".format(dataframe.get("question_name")[3]))
+    r2q2 = Response("{}".format(dataframe.get("response_content")[4]),
+                    "{}".format(dataframe.get("response_correct")[4]),
+                    "{}".format(dataframe.get("question_name")[4]))
+    r3q2 = Response("{}".format(dataframe.get("response_content")[5]),
+                    "{}".format(dataframe.get("response_correct")[5]),
+                    "{}".format(dataframe.get("question_name")[5]))
+    r1q3 = Response("{}".format(dataframe.get("response_content")[6]),
+                    "{}".format(dataframe.get("response_correct")[6]),
+                    "{}".format(dataframe.get("question_name")[6]))
+    r2q3 = Response("{}".format(dataframe.get("response_content")[7]),
+                    "{}".format(dataframe.get("response_correct")[7]),
+                    "{}".format(dataframe.get("question_name")[7]))
+    r3q3 = Response("{}".format(dataframe.get("response_content")[8]),
+                    "{}".format(dataframe.get("response_correct")[8]),
+                    "{}".format(dataframe.get("question_name")[8]))
+    r1q4 = Response("{}".format(dataframe.get("response_content")[9]),
+                    "{}".format(dataframe.get("response_correct")[9]),
+                    "{}".format(dataframe.get("question_name")[9]))
+    r2q4 = Response("{}".format(dataframe.get("response_content")[10]),
+                    "{}".format(dataframe.get("response_correct")[10]),
+                    "{}".format(dataframe.get("question_name")[10]))
+    r3q4 = Response("{}".format(dataframe.get("response_content")[11]),
+                    "{}".format(dataframe.get("response_correct")[11]),
+                    "{}".format(dataframe.get("question_name")[11]))
 
     history_quiz = Quiz("History quiz")
     cinema_quiz = Quiz("Cinema quiz")

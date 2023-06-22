@@ -8,7 +8,7 @@ Used IDE: IntelliJ IDEA Community Edition 2023.1.1.
 
 ### Project setup
 
-Installed psycopg2.
+Installed psycopg2, openpyxl.  
 
 ### Structure and functionalities
 

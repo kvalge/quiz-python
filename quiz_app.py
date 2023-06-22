@@ -56,35 +56,38 @@ if __name__ == '__main__':
     cinema = Topic("Cinema")
     philosophy = Topic("Philosophy")
 
+    dataframe = pd.read_excel('data.xlsx')
+    print(dataframe)
+
     q1 = Question("q1",
-                  "Which country was known as Rhodesia before gaining independence from the British in 1979?",
+                  "{}".format(dataframe.get("question_content")[0]),
                   "1",
                   "History")
     q2 = Question("q2",
-                  "Which country was unified by Giuseppe Garibaldi in 1851?",
+                  "{}".format(dataframe.get("question_content")[3]),
                   "3",
                   "History")
     q3 = Question("q3",
-                  "Which President was brought down by the Watergate Scandal?",
+                  "{}".format(dataframe.get("question_content")[6]),
                   "3",
                   "History")
     q4 = Question("q4",
-                  "Who directed Lost in Translation?",
+                  "{}".format(dataframe.get("question_content")[9]),
                   "1",
                   "Cinema")
 
-    r1q1 = Response("India", "False", "q1")
-    r2q1 = Response("Zimbabwe", "True", "q1")
-    r3q1 = Response("Sierra-Leone", "False", "q1")
-    r1q2 = Response("Spain", "False", "q2")
-    r2q2 = Response("Switzerland", "False", "q2")
-    r3q2 = Response("Italy", "True", "q2")
-    r1q3 = Response("Richard M. Nixon", "True", "q3")
-    r2q3 = Response("George W. Bush", "False", "q3")
-    r3q3 = Response("John F. Kennedy", "False", "q3")
-    r1q4 = Response("Jodie Foster", "False", "q4")
-    r2q4 = Response("Sally Potter", "False", "q4")
-    r3q4 = Response("Sofia Coppola", "True", "q4")
+    r1q1 = Response("{}".format(dataframe.get("response_content")[0]), "False", "q1")
+    r2q1 = Response("{}".format(dataframe.get("response_content")[1]), "True", "q1")
+    r3q1 = Response("{}".format(dataframe.get("response_content")[2]), "False", "q1")
+    r1q2 = Response("{}".format(dataframe.get("response_content")[3]), "False", "q2")
+    r2q2 = Response("{}".format(dataframe.get("response_content")[4]), "False", "q2")
+    r3q2 = Response("{}".format(dataframe.get("response_content")[5]), "True", "q2")
+    r1q3 = Response("{}".format(dataframe.get("response_content")[6]), "True", "q3")
+    r2q3 = Response("{}".format(dataframe.get("response_content")[7]), "False", "q3")
+    r3q3 = Response("{}".format(dataframe.get("response_content")[8]), "False", "q3")
+    r1q4 = Response("{}".format(dataframe.get("response_content")[9]), "False", "q4")
+    r2q4 = Response("{}".format(dataframe.get("response_content")[10]), "False", "q4")
+    r3q4 = Response("{}".format(dataframe.get("response_content")[11]), "True", "q4")
 
     history_quiz = Quiz("History quiz")
     cinema_quiz = Quiz("Cinema quiz")
@@ -98,6 +101,3 @@ if __name__ == '__main__':
 
     get_questions_by_quiz(history_quiz.name)
 
-    dataframe1 = pd.read_excel('data.xlsx')
-
-    print(dataframe1)

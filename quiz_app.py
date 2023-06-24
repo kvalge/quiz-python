@@ -59,14 +59,14 @@ if __name__ == '__main__':
     dataframe = pd.read_excel('data.xlsx')
     print(dataframe)
 
-    # Reading arguments for creating Question object from data excel data file
+    # Reading arguments from data excel data file for creating Question object
     for i, j in dataframe.iterrows():
         Question("{}".format(dataframe.get("question_name")[i]),
                  "{}".format(dataframe.get("question_content")[i]),
                  "{}".format(dataframe.get("question_rank")[i]),
                  "{}".format(dataframe.get("topic")[i]))
 
-    # Reading arguments for creating Response object from data excel data file
+    # Reading arguments from data excel data file for creating Response object
     for i, j in dataframe.iterrows():
         Response("{}".format(dataframe.get("response_content")[i]),
                  "{}".format(dataframe.get("response_correct")[i]),

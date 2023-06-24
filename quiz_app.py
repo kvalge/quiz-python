@@ -75,7 +75,7 @@ if __name__ == '__main__':
     history_quiz = Quiz("History quiz")
     cinema_quiz = Quiz("Cinema quiz")
 
-    # adding quiz and question to quiz_question table
+    # Adding quiz and question to quiz_question table
     drop_duplicates_qq = dataframe.drop_duplicates()
     for i, j in drop_duplicates_qq.iterrows():
         add_question_to_quiz(drop_duplicates_qq.get("quiz_name")[i], drop_duplicates_qq.get("question_name")[i])

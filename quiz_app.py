@@ -59,25 +59,14 @@ if __name__ == '__main__':
     dataframe = pd.read_excel('data.xlsx')
     print(dataframe)
 
-    # Reading Question object arguments from data excel file
-    q1 = Question("{}".format(dataframe.get("question_name")[0]),
-                  "{}".format(dataframe.get("question_content")[0]),
-                  "{}".format(dataframe.get("question_rank")[0]),
-                  "{}".format(dataframe.get("topic")[0]))
-    q2 = Question("{}".format(dataframe.get("question_name")[3]),
-                  "{}".format(dataframe.get("question_content")[3]),
-                  "{}".format(dataframe.get("question_rank")[3]),
-                  "{}".format(dataframe.get("topic")[3]))
-    q3 = Question("{}".format(dataframe.get("question_name")[6]),
-                  "{}".format(dataframe.get("question_content")[6]),
-                  "{}".format(dataframe.get("question_rank")[6]),
-                  "{}".format(dataframe.get("topic")[6]))
-    q4 = Question("{}".format(dataframe.get("question_name")[9]),
-                  "{}".format(dataframe.get("question_content")[9]),
-                  "{}".format(dataframe.get("question_rank")[9]),
-                  "{}".format(dataframe.get("topic")[9]))
+    # Reading arguments for creating Question object from data excel data file
+    for i, j in dataframe.iterrows():
+        Question("{}".format(dataframe.get("question_name")[i]),
+                 "{}".format(dataframe.get("question_content")[i]),
+                 "{}".format(dataframe.get("question_rank")[i]),
+                 "{}".format(dataframe.get("topic")[i]))
 
-    # Reading Response object arguments from data excel file
+    # Reading arguments for creating Response object from data excel data file
     for i, j in dataframe.iterrows():
         Response("{}".format(dataframe.get("response_content")[i]),
                  "{}".format(dataframe.get("response_correct")[i]),
@@ -86,10 +75,10 @@ if __name__ == '__main__':
     history_quiz = Quiz("History quiz")
     cinema_quiz = Quiz("Cinema quiz")
 
-    add_question_to_quiz(history_quiz.name, q1.name)
-    add_question_to_quiz(history_quiz.name, q2.name)
-    add_question_to_quiz(history_quiz.name, q3.name)
-    add_question_to_quiz(cinema_quiz.name, q4.name)
+    # add_question_to_quiz(history_quiz.name, q1.name)
+    # add_question_to_quiz(history_quiz.name, q2.name)
+    # add_question_to_quiz(history_quiz.name, q3.name)
+    # add_question_to_quiz(cinema_quiz.name, q4.name)
 
     get_question_by_topic(history.name)
 

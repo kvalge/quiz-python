@@ -78,42 +78,10 @@ if __name__ == '__main__':
                   "{}".format(dataframe.get("topic")[9]))
 
     # Reading Response object arguments from data excel file
-    r1q1 = Response("{}".format(dataframe.get("response_content")[0]),
-                    "{}".format(dataframe.get("response_correct")[0]),
-                    "{}".format(dataframe.get("question_name")[0]))
-    r2q1 = Response("{}".format(dataframe.get("response_content")[1]),
-                    "{}".format(dataframe.get("response_correct")[1]),
-                    "{}".format(dataframe.get("question_name")[1]))
-    r3q1 = Response("{}".format(dataframe.get("response_content")[2]),
-                    "{}".format(dataframe.get("response_correct")[2]),
-                    "{}".format(dataframe.get("question_name")[2]))
-    r1q2 = Response("{}".format(dataframe.get("response_content")[3]),
-                    "{}".format(dataframe.get("response_correct")[3]),
-                    "{}".format(dataframe.get("question_name")[3]))
-    r2q2 = Response("{}".format(dataframe.get("response_content")[4]),
-                    "{}".format(dataframe.get("response_correct")[4]),
-                    "{}".format(dataframe.get("question_name")[4]))
-    r3q2 = Response("{}".format(dataframe.get("response_content")[5]),
-                    "{}".format(dataframe.get("response_correct")[5]),
-                    "{}".format(dataframe.get("question_name")[5]))
-    r1q3 = Response("{}".format(dataframe.get("response_content")[6]),
-                    "{}".format(dataframe.get("response_correct")[6]),
-                    "{}".format(dataframe.get("question_name")[6]))
-    r2q3 = Response("{}".format(dataframe.get("response_content")[7]),
-                    "{}".format(dataframe.get("response_correct")[7]),
-                    "{}".format(dataframe.get("question_name")[7]))
-    r3q3 = Response("{}".format(dataframe.get("response_content")[8]),
-                    "{}".format(dataframe.get("response_correct")[8]),
-                    "{}".format(dataframe.get("question_name")[8]))
-    r1q4 = Response("{}".format(dataframe.get("response_content")[9]),
-                    "{}".format(dataframe.get("response_correct")[9]),
-                    "{}".format(dataframe.get("question_name")[9]))
-    r2q4 = Response("{}".format(dataframe.get("response_content")[10]),
-                    "{}".format(dataframe.get("response_correct")[10]),
-                    "{}".format(dataframe.get("question_name")[10]))
-    r3q4 = Response("{}".format(dataframe.get("response_content")[11]),
-                    "{}".format(dataframe.get("response_correct")[11]),
-                    "{}".format(dataframe.get("question_name")[11]))
+    for i, j in dataframe.iterrows():
+        Response("{}".format(dataframe.get("response_content")[i]),
+                 "{}".format(dataframe.get("response_correct")[i]),
+                 "{}".format(dataframe.get("question_name")[i]))
 
     history_quiz = Quiz("History quiz")
     cinema_quiz = Quiz("Cinema quiz")
@@ -126,4 +94,3 @@ if __name__ == '__main__':
     get_question_by_topic(history.name)
 
     get_questions_by_quiz(history_quiz.name)
-
